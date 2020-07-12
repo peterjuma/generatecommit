@@ -7,4 +7,4 @@ soup = BeautifulSoup(page.content, 'html.parser')
 commitmsg = soup.find(id='content').find_next('p').text.strip()
 permalink= URL+soup.find(class_ = 'permalink').find_next('a')['href']
 commit = commitmsg +"|" +permalink
-print(commit)
+print(commit)#Comment ales vous
