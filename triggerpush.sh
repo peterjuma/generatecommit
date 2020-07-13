@@ -7,4 +7,4 @@ echo "\tMESSAGE: $COMMITMSG" >> README.md
 echo "\tURL: $COMMITMSGURL\n\n\n" >> README.md
 git add README.md
 git push -u origin master
-git commit -m "${COMMITMSG}"#Comment ales vous
+git commit -m "${COMMITMSG}"
