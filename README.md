@@ -46,3 +46,15 @@ Making Changes on 12/07/2020@17:17:57
 
 
 
+Making Changes on 13/07/2020@10:22:09
+	MESSAGE: need another beer
+	URL: http://whatthecommit.com/e48d3204f722719527a8c37f3543a8e2
+
+
+
+Making Changes on 13/07/2020@10:28:54
+	MESSAGE: Refactor factories, revisit visitors
+	URL: http://whatthecommit.com/c914a330e8bc432235df7040beb504ee
+
+
+
