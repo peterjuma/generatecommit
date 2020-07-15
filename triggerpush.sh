@@ -7,5 +7,5 @@ COMMITMSGURL=$(echo $COMMIT | cut -d"|" -f2)
 #echo "\tURL: $COMMITMSGURL\n\n\n" >> README.md
 #git add README.md
 git add *
-git push -u origin master
 git commit -a -m "${COMMITMSG}"
+git push -u origin master
