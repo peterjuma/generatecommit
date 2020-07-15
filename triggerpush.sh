@@ -8,4 +8,4 @@ COMMITMSGURL=$(echo $COMMIT | cut -d"|" -f2)
 #git add README.md
 git add *
 git push -u origin master
-git commit -m "${COMMITMSG}"
+git commit -a -m "${COMMITMSG}"
