@@ -1,8 +1,17 @@
-# get all pages
-curl 'http://domain.com/id/[1-151468]' -o '#1.html'
+#!/bin/bash
+default="bin dump trash"
 
-# get all images
-grep -oh 'http://pics.domain.com/pics/original/.*jpg' *.html >urls.txt
+[[ ! -z "$@" ]] && imagename="$@" || imagename=$default
 
-# download all images
-sort -u urls.txt | wget -i-
+for name in $imagename
+	do
+		wget https://picsum.photos/500 -O ${name}.jpg
+		echo "Downloaded ${name}.jpg ...\n"
+		imgcat ${name}.jpg
+
+		git add ${name}.jpg
+
+		echo "![trashimage](${name}.jpg)" >> README.md
+done
+
+git add README.md
