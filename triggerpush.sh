@@ -1,3 +1,5 @@
+default="master"
+branch=${1:-$default}
 COMMIT=$(python3 commitmsg.py)
 DATE=$(date +%d/%m/%Y@%T)
 COMMITMSG=$(echo $COMMIT | cut -d"|" -f1)
@@ -8,4 +10,4 @@ COMMITMSGURL=$(echo $COMMIT | cut -d"|" -f2)
 #git add README.md
 git add *
 git commit -a -m "${COMMITMSG}"
-git push -u origin master
+git push -u origin $branch
