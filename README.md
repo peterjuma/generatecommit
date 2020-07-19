@@ -170,7 +170,22 @@ commits.sh 10 *noname*.txt
 ```
 
 
+## Commit and Push
 
+Script
+
+```
+push.sh
+```
+The script commits and pushes your **all** files in the working area to the "master" branch by default. It can also take one optional argument which is the preferred remote branch you are pushing to.
+
+```
+./push.sh 
+```
+
+```
+./push my-other-branch
+```
 
 
 
