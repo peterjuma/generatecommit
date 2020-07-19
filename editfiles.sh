@@ -1,8 +1,6 @@
 #!/bin/bash
 FILES="$@"
-for f in $FILES
+for filename in $FILES
   do
-    echo "Editing file $f" 
-    echo "Edited file $f on $(date +%F_%H-%M-%S)" >> $f
+  	[ -f "$filename" ] && { echo "Editing file $filename"; echo "Edited file $filename on $(date +%F_%H-%M-%S)" >> $filename; } || { echo "Skipping...file $filename does not exist" ;}
 done
-
