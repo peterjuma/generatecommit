@@ -68,4 +68,26 @@ Example:
 ./editfiles.sh *.txt*
 ```
 
+### Line Count
+The script allows you to create a file with a defined line count, 10 lines by default.
+
+Usage:
+
+```
+./linesinfile.sh
+Created file-with-10-lines.txt with 10 lines
+```
+
+```
+./linesinfile.sh 1000
+Created file-with-1000-lines.rb with 1000 lines
+```
+
+```
+./linesinfile.sh 1000 manylines.txt
+Created manylines.txt with 1000 lines
+```
+
+
+
 
