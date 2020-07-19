@@ -1,4 +1,4 @@
-### Create Files
+## Create Files
 The script `createmultifiles.sh` creates multiple according to the count passed on the commandline and appends a sequential number on the filename based on the count.
 
 It creates 5 files by default, if no count is passed on the command line with stub name "File000<seq number>.txt".
@@ -68,7 +68,7 @@ Example:
 ./editfiles.sh *.txt*
 ```
 
-### Line Count
+## Line Count
 The script allows you to create a file with a defined line count, 10 lines by default.
 
 Usage:
@@ -89,5 +89,39 @@ Created manylines.txt with 1000 lines
 ```
 
 
+## Big File
+
+`./bigassfile.sh` 
+
+Creates a 10MB text file
+
+
+## Working with Images
+
+`./getimages.sh`
+
+The script uses `wget` to download images from [picsum photos](https://picsum.photos). 3 images with names "bin.jpg dump.jpg trash.jpg" are downloaded by default.
+
+You can pass your own images names either as an array to download multiple images with the given names in the array or as a single name for a single image download.
+
+```
+./getimages.sh "cat mouse moose nairobi"
+
+...
+--2020-07-19 14:30:35--  https://picsum.photos/500
+Resolving picsum.photos (picsum.photos)... 104.26.4.30, 104.26.5.30, 172.67.74.163, ...
+Connecting to picsum.photos (picsum.photos)|104.26.4.30|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://i.picsum.photos/id/371/500/500.jpg?hmac=k2gvOWENObGI_VXj9CV7Vfv_-X8KgPbqOlhKIFug6Kg [following]
+--2020-07-19 14:30:35--  https://i.picsum.photos/id/371/500/500.jpg?hmac=k2gvOWENObGI_VXj9CV7Vfv_-X8KgPbqOlhKIFug6Kg
+Resolving i.picsum.photos (i.picsum.photos)... 104.26.5.30, 172.67.74.163, 104.26.4.30, ...
+Connecting to i.picsum.photos (i.picsum.photos)|104.26.5.30|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 43715 (43K) [image/jpeg]
+Saving to: ‘nairobi.jpg’
+
+```
+
+The images will then be embedded in your README.md.
 
 
