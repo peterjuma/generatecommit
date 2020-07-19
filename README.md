@@ -133,8 +133,9 @@ Resolving i.picsum.photos (i.picsum.photos)... 104.26.5.30, 172.67.74.163, 104.2
 Connecting to i.picsum.photos (i.picsum.photos)|104.26.5.30|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 43715 (43K) [image/jpeg]
-Saving to: ‘nairobi.jpg’
----------
+nairobi.jpg                                 100%[===========================================================================================>]  42.69K   260KB/s    in 0.2s
+
+2020-07-19 14:30:36 (260 KB/s) - ‘nairobi.jpg’ saved [43715/43715]
 
 ```
 
