@@ -107,7 +107,22 @@ You can pass your own images names either as an array to download multiple image
 ```
 ./getimages.sh "cat mouse moose nairobi"
 
-...
+----------
+--2020-07-19 14:30:33--  https://picsum.photos/500
+Resolving picsum.photos (picsum.photos)... 104.26.4.30, 104.26.5.30, 172.67.74.163, ...
+Connecting to picsum.photos (picsum.photos)|104.26.4.30|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://i.picsum.photos/id/628/500/500.jpg?hmac=5C1aJwdODV-2Zb9vs0fKTTbmBh-UGtOFNPT6AuNQkBI [following]
+--2020-07-19 14:30:34--  https://i.picsum.photos/id/628/500/500.jpg?hmac=5C1aJwdODV-2Zb9vs0fKTTbmBh-UGtOFNPT6AuNQkBI
+Resolving i.picsum.photos (i.picsum.photos)... 104.26.5.30, 172.67.74.163, 104.26.4.30, ...
+Connecting to i.picsum.photos (i.picsum.photos)|104.26.5.30|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 41858 (41K) [image/jpeg]
+Saving to: ‘moose.jpg’
+
+moose.jpg                                   100%[===========================================================================================>]  40.88K  --.-KB/s    in 0.1s
+
+2020-07-19 14:30:35 (361 KB/s) - ‘moose.jpg’ saved [41858/41858]
 --2020-07-19 14:30:35--  https://picsum.photos/500
 Resolving picsum.photos (picsum.photos)... 104.26.4.30, 104.26.5.30, 172.67.74.163, ...
 Connecting to picsum.photos (picsum.photos)|104.26.4.30|:443... connected.
@@ -119,6 +134,7 @@ Connecting to i.picsum.photos (i.picsum.photos)|104.26.5.30|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 43715 (43K) [image/jpeg]
 Saving to: ‘nairobi.jpg’
+---------
 
 ```
 
