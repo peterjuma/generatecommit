@@ -141,4 +141,37 @@ nairobi.jpg                                 100%[===============================
 
 The images will then be embedded in your README.md.
 
+## Generate Commits
+
+Script:
+
+```
+commits.sh
+
+```
+
+Usage:
+
+The script takes the count of commits to be generated and the filename to be edited and commited.
+It uses `editfiles.sh` to edit the file(s) and `commitmsg.py` to generate the commit message from [WhatTheCommit](http://whatthecommit.com/).
+
+By default, it will edit all the file starting with the name "File000*" and commit once.
+
+To edit and commit a specific file 10 times:
+
+```
+commits.sh 10 myspecificfile.txt
+```
+
+You may also use wildcards:
+
+```
+commits.sh 10 *noname*.txt
+```
+
+
+
+
+
+
 
