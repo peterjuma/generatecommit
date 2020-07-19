@@ -8,6 +8,6 @@ do
 	DATE=$(date +%d/%m/%Y@%T)
 	COMMITMSG=$(echo $COMMIT | cut -d"|" -f1)
 	COMMITMSGURL=$(echo $COMMIT | cut -d"|" -f2)
-	git add *
+	git add File000*
 	git commit -a -m "${COMMITMSG}"
 done
