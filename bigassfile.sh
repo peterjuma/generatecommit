@@ -16,3 +16,5 @@ Phasellus consectetuer vestibulum elit.\n
 Etiam feugiat lorem non metus.\n"
 
 yes $text | head -n $count > $stub${rand}.txt
+
+echo "File Created:   `ls -lhtr $stub${rand}.txt`"
