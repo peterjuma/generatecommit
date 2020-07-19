@@ -2,5 +2,6 @@ commitmsg.py
 createmultifiles.sh
 editfiles.sh
 getimages.sh
-triggerpush.sh
+push.sh
 bigassfile.sh
+commit.sh
