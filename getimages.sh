@@ -11,7 +11,8 @@ for name in $imagename
 
 		git add ${name}.jpg
 
-		echo "![trashimage](${name}.jpg)" >> README.md
+		#echo "![trashimage](${name}.jpg)" >> README.md
+		gsed -i "$ i \  <img src=${name}.jpg width="200"/>" README.md
 done
 
 git add README.md

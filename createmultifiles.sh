@@ -1,6 +1,6 @@
 #!/bin/bash
-default=5
-stub="File000"
+default=1
+stub=${2:-"File000"}
 count=${1:-$default}
 
 for (( i=1; i<$count+1; i++))
