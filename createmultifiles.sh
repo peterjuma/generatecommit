@@ -1,10 +1,24 @@
 #!/bin/bash
-default=1
-stub=${2:-"File000"}
-count=${1:-$default}
 
-for (( i=1; i<$count+1; i++))
+DEFAULTCOUNT=$(( ( RANDOM % 10 )  + 1 ))
+
+FILECOUNT=${1:-$DEFAULTCOUNT}
+
+echo Creting ${FILECOUNT} files...
+
+FILECONTENT="
+
+### Editing file on $(date +%F_%H-%M-%S)
+
+$(lipsum -n 2)
+
+"
+
+for ((i=1;i<=${FILECOUNT};i++))
 do
-  filename=$stub$i".txt"
-  [ -f $filename ] && echo "$filename exists, moving on" || { echo $(date +%F_%H-%M-%S) This is my message of the day  > $filename; echo "$filename created"; }
+  RANDOMFILE=`cat /usr/share/dict/web2a | sort -R | head -1 | sed 's/ //g'`
+  echo "Editing file $RANDOMFILE.md"; echo "${FILECONTENT}" >> ${RANDOMFILE}.md;
 done
+
+
+
