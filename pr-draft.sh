@@ -12,7 +12,7 @@ git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null && git push ori
 
 subject=`lipsum -w 2`
 body=`lipsum -n 1`
-URL=`gh pr create --title "$subject" --body "$body" 2>&1  | tail -n 1`
+URL=`gh pr create --draft --title "$subject" --body "$body" 2>&1  | tail -n 1`
 
 
 if [[ "$CUR_HEAD" == "master" || "$CUR_HEAD" == "main" ]]
@@ -22,8 +22,8 @@ fi
 
 if [[ "$*" == *"merge"* ]]
 then
-	COMMITMSG=$(python3 commitmsg.py)
-	#COMMITMSG=$(curl -s http://whatthecommit.com/ | grep -A2 '<div id="content">' | awk -F: 'NR==2 {sub(/<p>/,"");print $1}')
+	# COMMITMSG=$(python3 commitmsg.py)
+	COMMITMSG=$(curl -s http://whatthecommit.com/ | grep -A2 '<div id="content">' | awk -F: 'NR==2 {sub(/<p>/,"");print $1}')
 	echo ${COMMITMSG}
 	gh pr merge "$URL" --merge --admin --body ${COMMITMSG}
 fi
