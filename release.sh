@@ -1,26 +1,32 @@
 #!/bin/bash
 
-OWNER=peterjuma
-REPO=$(basename -s .git `git config --get remote.origin.url`)
+# Create a release on GitHub using the GitHub API.
+# This script assumes you have a GitHub token set in the TOKEN environment variable.
 
-# https://michaelcurrin.github.io/auto-tag/installation
+# Get the repo name
+repo=$(gh repo view --json nameWithOwner -q ".nameWithOwner") 
 
-sh pr --merge
+# Add 3 commits
+for i in {0..1}; do
+    sh pr.sh --merge --silent
+    sh autotag b
+    git push --tags
+done
 
 # Tag the commit 
-sh autotag b
+newtag=$(autotag m | grep "New tag" | awk '{print $NF}')
 
+# Push the tag
+git push --tags
 
-TAG=$(git describe --tags --abbrev=0)
+# Create a release
+release_url=$(gh release create $newtag --generate-notes --title "Release $newtag" --latest)
 
-git push origin ${TAG}
-git push 
+# Open the release in the browser
+open -a "/Applications/Google Chrome.app" "$release_url"
 
-URL=$(curl -s\
-  -H "Authorization: token $TOKEN" \
-  -X POST \
-  -H "Accept: application/vnd.github.v3+json" \
-  https://api.github.com/repos/${OWNER}/${REPO}/releases \
-  -d '{"tag_name": "'"${TAG}"'", "name": "'"${TAG}"'", "generate_release_notes": true}' | jq -r '.html_url')
-
-open -a "/Applications/Google Chrome.app" "$URL"
+# Reference:
+# https://docs.github.com/en/rest/reference/repos#create-a-release
+# https://docs.github.com/en/rest/reference/repos#list-releases
+# https://michaelcurrin.github.io/auto-tag/installation
+# https://michaelcurrin.github.io/auto-tag/usage
