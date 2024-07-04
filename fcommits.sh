@@ -4,7 +4,7 @@
 # count=${1:-1}
 COUNT=${1:-1}
 
-sh commits.sh
+sh commits.sh 1
 
 FILE=$(lipsum -n 1 -w 1 | awk '{print tolower($0) ext}' | awk '{gsub(/\.|\ /,"")}1')
 FILENAME=${2:-"${FILE}.md"}
