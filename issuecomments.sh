@@ -2,20 +2,20 @@
 
 # Check for necessary command line arguments
 if [ $# -eq 0 ]; then
-    echo "Usage: ./prcomments.sh -n <pr-number> -c <comment count>"
+    echo "Usage: ./issuecomments.sh -n <issue-number> -c <comment count>"
     exit 1
 fi
 
 while getopts n:c: flag
 do
     case "${flag}" in
-        n) prnumber=${OPTARG};;
+        n) issuenumber=${OPTARG};;
         c) count=${OPTARG};;
     esac
 done
 
-if [ -z "$prnumber" ] || [ -z "$count" ]; then
-    echo "Both -n (pull request number) and -c (comment count) must be specified."
+if [ -z "$issuenumber" ] || [ -z "$count" ]; then
+    echo "Both -n (issue number) and -c (comment count) must be specified."
     exit 1
 fi
 
@@ -27,14 +27,14 @@ if [ -z "$repo_name" ]; then
 fi
 
 echo "Repository: $repo_name"
-echo "Pull request number: $prnumber"
+echo "Issue number: $issuenumber"
 echo "Number of comments to post: $count"
 
-# Post comments to the pull request using GitHub CLI
+# Post comments to the issue using GitHub CLI
 for (( i=1; i<=$count; i++ ))
 do
     body=$(lipsum -n 1)
-    gh pr review $prnumber --comment --body "$body"
+    gh issue comment $issuenumber --body "$body"
 done
 
 echo "Comments posted."
